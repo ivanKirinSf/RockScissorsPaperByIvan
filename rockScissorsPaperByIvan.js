@@ -16,10 +16,19 @@ if (playerTurn == "r"||playerTurn == "rock"){
 let computerRandomNumber = Math.floor(Math.random()*3)+1;
 
 switch(computerRandomNumber){
-    case 1 : "Rock";
+    case 1 : 
+    computerTurn = "Rock";
     break;
-    case 2: "Paper";
+    case 2: 
+    computerTurn = "Paper";
     break;
-    case 3: "Scissors";
+    case 3: 
+    computerTurn = "Scissors";
     break;
+}
+
+console.log(`The computer chooses ${computerTurn}`);
+
+if((playerTurn === rock & computerTurn === scissors) || (playerTurn === paper & computerTurn === rock) || (playerTurn === scissors & computerTurn === paper) ){
+    console.log("You win!");
 }
