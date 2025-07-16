@@ -1,49 +1,88 @@
-let playerTurn = "s";
+let playerTurn = "r";
 
-let rock = "Rock";
-let paper = "Paper";
-let scissors = "Scissors";
+const rock = "Rock";
+const paper = "Paper";
+const scissors = "Scissors";
+
+let isValid = true;
+
+let compCounter = 0;
+
+let playerCounter = 0;
 
 if( playerTurn == "r" || playerTurn == "Rock"){
+
     playerTurn = rock;
-}else if( playerTurn == "p" || playerTurn == "Paper" ){
+
+}else if(playerTurn == "p" || playerTurn == "Paper"){
+
     playerTurn = paper;
-}else if( playerTurn == "s" || playerTurn == "Scissors"){
-    playerTurn = scissors;
+
+}else if(playerTurn == "s" || playerTurn == "Scissors"){
+
+    playerTurn = scissors;   
+
 }else{
-    console.log("Invalid input! Try again later...")
+
+console.log(`Invalid input!`);
+
+isValid = false;
+
 }
 
-let computerNum = Math.floor(Math.random() * 3) + 1;
+if( playerTurn === "res"){
 
-switch(computerNum){
+    playerCounter = 0;
 
-    case 1:
-        computerMove = rock;
-        break;
-        case 2:
-            computerMove = paper;
+    compCounter = 0;
+
+}
+
+if(isValid === true){
+
+    let compRandomMove = Math.floor(Math.random()*3 + 1);
+
+
+switch(compRandomMove){
+
+    case 1:        
+    {computerMove = rock};
+    break;
+    case 2:
+        {computerMove = paper};
         break;
         case 3:
-            computerMove = scissors;
-        break;
+            {computerMove = scissors};
+            break;
+
 }
 
-console.log(`The computer chooses ${computerMove}`);
+console.log(`Computer chooses ${computerMove}`);
 
-if(playerTurn === rock && computerMove === scissors || playerTurn === paper && computerMove === rock || 
-   playerTurn === scissors && computerMove === paper){
+if(playerTurn == rock && computerMove == scissors || playerTurn == paper && computerMove == rock ||
+    playerTurn == scissors && computerMove == paper){
 
-    console.log(`You win!`);
+        console.log(`
+            You win!`)
 
-   }else if(playerTurn === rock && computerMove === paper || playerTurn === paper && computerMove === scissors || 
-   playerTurn === scissors && computerMove === rock){
+            console.log(`
+                player: ${playerCounter}   computer: ${compCounter}`);
 
-    console.log(`You lose!`);
+    }else if(playerTurn == scissors && computerMove == rock || playerTurn == rock && computerMove == paper ||
+        playerTurn == paper && computerMove == scissors){
 
-   }else{
+            console.log(`
+                You lose!`)
 
-    console.log(`This game was a draw!`);
+                console.log(`
+                    player: ${playerCounter}   computer: ${compCounter}`);
 
-   }
+        }else {
+
+            console.log(`
+                This game was a draw!`)
+
+        }
+}
+
 
